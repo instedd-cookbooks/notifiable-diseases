@@ -6,6 +6,5 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-file "/tmp/hello.txt" do
-  content "Hello, Jedi"
-end
+
+include_recipe "nodejs"
