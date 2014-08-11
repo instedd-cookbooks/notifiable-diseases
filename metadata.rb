@@ -1,6 +1,6 @@
 name             'notifiable-diseases'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'InSTEDD'
+maintainer_email 'jedi@manas.com.ar'
 license          'All rights reserved'
 description      'Installs/Configures notifiable-diseases'
 long_description 'Installs/Configures notifiable-diseases'

@@ -2,7 +2,7 @@
 # Cookbook Name:: notifiable-diseases
 # Recipe:: default
 #
-# Copyright (C) 2014 YOUR_NAME
+# Copyright (C) 2014 InSTEDD
 #
 # All rights reserved - Do Not Redistribute
 #
