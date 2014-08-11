@@ -15,3 +15,6 @@ Berksfile.lock
 Gemfile.lock
 bin/*
 .bundle/*
+
+*.sublime-project
+*.sublime-workspace
