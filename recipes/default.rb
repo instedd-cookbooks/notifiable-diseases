@@ -1,6 +1,16 @@
 # TODO: extract to attributes
 nndd_dir = "/opt/notifiable-diseases"
 nndd_git = "https://bitbucket.org/instedd/notifiable-diseases.git"
+ruby_version = "1.9.3-p484"
+
+include_recipe "rbenv::default"
+include_recipe "rbenv::ruby_build"
+
+rbenv_ruby ruby_version
+
+rbenv_gem "compass" do
+  ruby_version ruby_version
+end
 
 include_recipe "nodejs"
 include_recipe "nodejs::npm"
