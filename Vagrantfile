@@ -15,6 +15,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "opscode-centos-6.4"
   config.vm.box_url = "https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_centos-6.4_provisionerless.box"
 
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "2048", "--ioapic", "on", "--cpus", "2"]
+  end
+
   config.vm.network :private_network, type: :dhcp
   config.vm.network :private_network, virtualbox__intnet: true, ip: "192.168.111.10"
 
@@ -42,14 +46,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.berkshelf.except = []
 
   config.vm.provision :chef_solo do |chef|
-    chef.json = {
-      mysql: {
-        server_root_password: 'rootpass',
-        server_debian_password: 'debpass',
-        server_repl_password: 'replpass'
-      }
-    }
-
     chef.run_list = [
         "recipe[notifiable-diseases::default]"
     ]

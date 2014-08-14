@@ -7,4 +7,3 @@ long_description 'Installs/Configures notifiable-diseases'
 version          '0.1.0'
 
 depends 'nodejs'
-depends 'grunt_cookbook'
