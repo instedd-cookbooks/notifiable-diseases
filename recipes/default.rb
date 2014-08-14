@@ -43,18 +43,18 @@ git build_dir do
   action :sync
 end
 
-execute('npm install') do
+execute 'npm install' do
   cwd build_dir
   command "su #{nndd_user} -c 'npm install'"
 end
 
-execute('bower install') do
+execute 'bower install' do
   cwd build_dir
   command "su #{nndd_user} -c 'bower install'"
 end
 
-grunt_args = custom_styles && "--custom-styles=#{custom_styles}" || ""
-execute("grunt build") do
+grunt_args = custom_styles && "--custom-styles=\"#{custom_styles}\"" || ""
+execute 'grunt build' do
   cwd build_dir
   command "su #{nndd_user} -c 'grunt build #{grunt_args}'"
 end
