@@ -1,3 +1,7 @@
+nndd_user = node['notifiable-diseases']['user']
+
+user nndd_user
+
 #------ Install ruby and compass
 
 ruby_version = node['notifiable-diseases']['ruby_version']
@@ -33,16 +37,27 @@ directory build_dir do
 end
 
 git build_dir do
+  user nndd_user
   repository "https://bitbucket.org/instedd/notifiable-diseases.git"
   revision "master"
   action :sync
 end
 
-execute('npm install --unsafe-perm')    { cwd build_dir }
-execute('bower install --allow-root')   { cwd build_dir }
+execute('npm install') do
+  cwd build_dir
+  command "su #{nndd_user} -c 'npm install'"
+end
+
+execute('bower install') do
+  cwd build_dir
+  command "su #{nndd_user} -c 'bower install'"
+end
 
 grunt_args = custom_styles && "--custom-styles=#{custom_styles}" || ""
-execute("grunt build #{grunt_args}")    { cwd build_dir }
+execute("grunt build") do
+  cwd build_dir
+  command "su #{nndd_user} -c 'grunt build #{grunt_args}'"
+end
 
 
 execute("mv #{File.join(build_dir,'dist','nndd')} #{dist_dir}")
