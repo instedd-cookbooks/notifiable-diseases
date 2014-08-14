@@ -28,13 +28,7 @@ nodejs_npm('bower')       { options ["--production"] }
 #------ Clone git and build
 
 build_dir  = "/tmp/nndd-build"
-dist_dir = node['notifiable-diseases']['dist_dir']
 custom_styles = node['notifiable-diseases']['custom_styles']
-
-directory build_dir do
-  recursive true
-  action :delete
-end
 
 git build_dir do
   user nndd_user
@@ -60,4 +54,15 @@ execute 'grunt build' do
 end
 
 
-execute("mv #{File.join(build_dir,'dist','nndd')} #{dist_dir}")
+#------ Move built app to target directory and cleanup
+
+dist_dir = node['notifiable-diseases']['dist_dir']
+
+execute "mv #{File.join(build_dir,'dist','nndd')} #{dist_dir}"
+
+directory build_dir do
+  recursive true
+  action :delete
+end
+
+log "Notifiable Diseases was deployed in #{dist_dir}"
