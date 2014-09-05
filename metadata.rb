@@ -6,5 +6,5 @@ description      'Installs/Configures notifiable-diseases'
 long_description 'Installs/Configures notifiable-diseases'
 version          '0.1.0'
 
-depends 'nodejs', ">= 2.0"
+depends 'nodejs', ">= 2.1"
 depends 'rbenv'
