@@ -7,6 +7,12 @@ user nndd_user do
 end
 
 
+# Install package dependencies
+
+package 'gifsicle'
+package 'libpng-dev'
+
+
 # Install ruby and compass
 
 include_recipe "rbenv::default"
@@ -72,7 +78,7 @@ application "notifiable-diseases" do
       value && "--#{arg.gsub('_', '-')}=\"#{value}\""
     end.compact.join(' ')
 
-    execute "grunt build --force #{grunt_args}", &execute_opts
+    execute "grunt build #{grunt_args}", &execute_opts
   end
 
 end
