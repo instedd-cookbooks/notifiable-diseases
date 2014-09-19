@@ -10,7 +10,7 @@ end
 # Install package dependencies
 
 package 'gifsicle'
-package 'libpng-dev'
+package 'libpng-devel'
 
 
 # Install ruby and compass
