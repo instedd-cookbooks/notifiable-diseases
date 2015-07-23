@@ -40,7 +40,7 @@ app_dir = node['notifiable-diseases']['app_dir']
 
 application "notifiable-diseases" do
   revision node['notifiable-diseases']['revision'] if node['notifiable-diseases']['revision']
-  repository "https://github.com/instedd/notifiable-diseases.git"
+  repository node['notifiable-diseases']['repository']
   path app_dir
   owner nndd_user
 
