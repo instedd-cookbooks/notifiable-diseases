@@ -17,6 +17,7 @@ Optional attributes:
 
 * `custom_styles` Path to custom SCSS to be used when compiling the app
 * `settings` Path to JSON file with custom settings
+* `repository` URI of the Git repository to download the code from (defaults to https://github.com/instedd/notifiable-diseases.git)
 
 
 ## Usage
