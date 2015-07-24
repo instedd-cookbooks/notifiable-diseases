@@ -39,6 +39,8 @@ nodejs_npm('bower')       { options ["--production"] }
 app_dir = node['notifiable-diseases']['app_dir']
 
 application "notifiable-diseases" do
+  deploy_key data_bag_item('deploy_keys', node['notifiable-diseases']['deploy_keys'])['private_key'] if node['notifiable-diseases']['deploy_keys']
+
   revision node['notifiable-diseases']['revision'] if node['notifiable-diseases']['revision']
   repository node['notifiable-diseases']['repository']
   path app_dir
