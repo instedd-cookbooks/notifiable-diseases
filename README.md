@@ -18,6 +18,7 @@ Optional attributes:
 * `custom_styles` Path to custom SCSS to be used when compiling the app
 * `settings` Path to JSON file with custom settings
 * `repository` URI of the Git repository to download the code from (defaults to https://github.com/instedd/notifiable-diseases.git)
+* `deploy_keys` If set, the recipe will look for a JSON file with that name under `deploy_keys`. Necessary to provision from private forks of NNDD.
 
 
 ## Usage
