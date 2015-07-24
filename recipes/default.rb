@@ -30,7 +30,11 @@ end
 include_recipe "nodejs"
 include_recipe "nodejs::npm"
 
-nodejs_npm('grunt-cli')   { options ["--production"] }
+nodejs_npm('grunt-cli') do
+  options ["--production"]
+  version "0.1.13"
+end
+
 nodejs_npm('bower')       { options ["--production"] }
 
 
