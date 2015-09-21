@@ -11,6 +11,7 @@ end
 
 package 'gifsicle'
 package 'libpng-devel'
+package 'bzip2'
 
 
 # Install ruby and compass
